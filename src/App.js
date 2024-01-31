@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+// import UserGreeting from './UserGreeting';
 
 function App() {
+
+  const[show, setShow] = useState(false);
+
+  const handleChange = () => {
+    setShow(!show);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <UserGreeting isLoggedIn={false} userName="REact"/> */}
+      <p>Button to toggle - showing ON/OFF field</p>
+      <label>
+        Toggle:
+        <input type='checkbox' checked={show} onChange={handleChange} />
+      </label>
+
+      <p>{show ? "ON" : "OFF"}</p>
     </div>
   );
 }
